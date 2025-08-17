@@ -1,0 +1,872 @@
+/* Character Tracker Plugin Styles */
+
+.character-tracker-interface {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: 1200px;
+    height: 80vh;
+    background: #1a1a1a;
+    border: 2px solid #333;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    z-index: 10000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Header */
+.ct-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #333;
+}
+
+.ct-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.ct-close-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ct-close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* Tabs */
+.ct-tabs {
+    display: flex;
+    background: #2a2a2a;
+    border-bottom: 1px solid #333;
+}
+
+.ct-tab {
+    background: transparent;
+    border: none;
+    color: #ccc;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.ct-tab:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.ct-tab.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-bottom-color: #667eea;
+}
+
+/* Content */
+.ct-content {
+    height: calc(100% - 140px);
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.ct-tab-content {
+    display: none;
+}
+
+.ct-tab-content.active {
+    display: block;
+}
+
+/* Characters Tab */
+.ct-add-character-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.ct-add-character-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.ct-no-characters {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    margin: 40px 0;
+}
+
+.ct-character-item {
+    background: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.ct-character-item:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.ct-character-info h3 {
+    margin: 0 0 10px 0;
+    color: #fff;
+    font-size: 18px;
+}
+
+.ct-character-info p {
+    margin: 5px 0;
+    color: #ccc;
+    font-size: 14px;
+}
+
+.ct-character-actions button {
+    background: #444;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ct-character-actions button:hover {
+    background: #667eea;
+}
+
+/* Character Editor */
+.ct-character-editor {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    max-width: 800px;
+    max-height: 90vh;
+    background: #1a1a1a;
+    border: 2px solid #333;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    z-index: 10001;
+    overflow-y: auto;
+}
+
+.ct-editor-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #333;
+}
+
+.ct-editor-header h3 {
+    margin: 0;
+    color: #fff;
+}
+
+.ct-editor-header button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.ct-editor-content {
+    padding: 20px;
+}
+
+.ct-editor-section {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: #2a2a2a;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.ct-editor-section h4 {
+    margin: 0 0 15px 0;
+    color: #fff;
+    font-size: 16px;
+}
+
+.ct-editor-section label {
+    display: block;
+    margin-bottom: 15px;
+    color: #ccc;
+}
+
+.ct-editor-section input,
+.ct-editor-section textarea,
+.ct-editor-section select {
+    width: 100%;
+    padding: 10px;
+    background: #333;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.ct-editor-section textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.ct-trait-input,
+.ct-relationship-input {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+    align-items: end;
+}
+
+.ct-trait-input button,
+.ct-relationship-input button {
+    background: #667eea;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.ct-trait-item,
+.ct-relationship-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #333;
+    border-radius: 6px;
+    margin-bottom: 8px;
+}
+
+.ct-trait-name,
+.ct-relationship-target {
+    font-weight: 500;
+    color: #fff;
+}
+
+.ct-trait-weight,
+.ct-relationship-type {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.ct-relationship-notes {
+    color: #888;
+    font-size: 12px;
+    font-style: italic;
+}
+
+.ct-trait-item button,
+.ct-relationship-item button {
+    background: #f44336;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.ct-editor-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.ct-editor-actions button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ct-editor-actions button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Personality Tab */
+.ct-personality-selector {
+    margin-bottom: 20px;
+}
+
+.ct-personality-selector label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ccc;
+}
+
+.ct-personality-selector select {
+    padding: 8px 12px;
+    background: #333;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.ct-personality-stats {
+    margin-top: 20px;
+}
+
+.ct-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.ct-stat-item {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #333;
+}
+
+.ct-stat-item h4 {
+    margin: 0 0 10px 0;
+    color: #ccc;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.ct-stat-item p {
+    margin: 0;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.ct-dominant-traits {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: 1px solid #333;
+}
+
+.ct-dominant-traits h4 {
+    margin: 0 0 15px 0;
+    color: #fff;
+    font-size: 16px;
+}
+
+.ct-trait-ranking {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ct-trait-rank {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background: #333;
+    border-radius: 6px;
+}
+
+.ct-rank-number {
+    background: #667eea;
+    color: #fff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.ct-trait-name {
+    flex: 1;
+    color: #fff;
+    font-weight: 500;
+}
+
+.ct-trait-weight {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.ct-personality-insights {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.ct-personality-insights h4 {
+    margin: 0 0 15px 0;
+    color: #fff;
+    font-size: 16px;
+}
+
+.ct-insights-content p {
+    margin: 0 0 10px 0;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.ct-insights-content strong {
+    color: #667eea;
+}
+
+/* Relationships Tab */
+.ct-relationships-selector {
+    margin-bottom: 20px;
+}
+
+.ct-relationship-overview {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: 1px solid #333;
+}
+
+.ct-relationship-overview h3 {
+    margin: 0 0 20px 0;
+    color: #fff;
+    font-size: 20px;
+}
+
+.ct-relationship-stats {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.ct-relationship-count {
+    text-align: center;
+}
+
+.ct-count-number {
+    display: block;
+    font-size: 36px;
+    font-weight: 600;
+    color: #667eea;
+}
+
+.ct-count-label {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.ct-relationship-breakdown {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.ct-relationship-type-count {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: #333;
+    border-radius: 6px;
+}
+
+.ct-type-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.ct-type-name {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.ct-type-count {
+    background: #667eea;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.ct-relationship-visualization {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: 1px solid #333;
+}
+
+.ct-relationship-visualization h4 {
+    margin: 0 0 20px 0;
+    color: #fff;
+    font-size: 16px;
+}
+
+.ct-relationship-network {
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ct-center-node {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.ct-center-node .ct-node-content {
+    background: #667eea;
+    color: #fff;
+    padding: 20px;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.ct-center-node strong {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.ct-center-node small {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.ct-relationship-node {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.ct-relationship-node .ct-node-content {
+    background: #2a2a2a;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid;
+    text-align: center;
+    min-width: 100px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.ct-relationship-node strong {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.ct-relationship-node small {
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+.ct-relationship-note {
+    font-size: 10px;
+    opacity: 0.7;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Position relationship nodes in a circle around center */
+.ct-relationship-node:nth-child(2) { transform: translate(-50%, -50%) translate(0, -150px); }
+.ct-relationship-node:nth-child(3) { transform: translate(-50%, -50%) translate(130px, -75px); }
+.ct-relationship-node:nth-child(4) { transform: translate(-50%, -50%) translate(130px, 75px); }
+.ct-relationship-node:nth-child(5) { transform: translate(-50%, -50%) translate(0, 150px); }
+.ct-relationship-node:nth-child(6) { transform: translate(-50%, -50%) translate(-130px, 75px); }
+.ct-relationship-node:nth-child(7) { transform: translate(-50%, -50%) translate(-130px, -75px); }
+
+.ct-relationship-details {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: 1px solid #333;
+}
+
+.ct-relationship-details h4 {
+    margin: 0 0 20px 0;
+    color: #fff;
+    font-size: 16px;
+}
+
+.ct-relationship-item-detailed {
+    background: #333;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.ct-relationship-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.ct-relationship-target {
+    font-weight: 500;
+    color: #fff;
+    font-size: 16px;
+}
+
+.ct-relationship-type-badge {
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.ct-relationship-notes {
+    color: #ccc;
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.ct-relationship-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.ct-relationship-actions button {
+    background: #444;
+    border: none;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s ease;
+}
+
+.ct-relationship-actions button:hover {
+    background: #667eea;
+}
+
+.ct-relationship-insights {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+/* Analysis Tab */
+.ct-analysis-controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.ct-analysis-controls button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ct-analysis-controls button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.ct-report {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.ct-report h3 {
+    margin: 0 0 20px 0;
+    color: #fff;
+    font-size: 18px;
+}
+
+.ct-report textarea {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.ct-report button {
+    background: #667eea;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.ct-report button:hover {
+    background: #5a6fd8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .character-tracker-interface {
+        width: 95vw;
+        height: 90vh;
+    }
+    
+    .ct-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .ct-tab {
+        flex: 1;
+        min-width: 120px;
+        padding: 12px 15px;
+        font-size: 12px;
+    }
+    
+    .ct-trait-input,
+    .ct-relationship-input {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .ct-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .ct-relationship-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .ct-relationship-breakdown {
+        justify-content: center;
+    }
+}
+
+/* Scrollbar Styling */
+.ct-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.ct-content::-webkit-scrollbar-track {
+    background: #2a2a2a;
+}
+
+.ct-content::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
+}
+
+.ct-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Animation Classes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.ct-tab-content.active {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Chart Container Styling */
+canvas {
+    max-width: 100%;
+    height: auto !important;
+}
+
+/* Loading States */
+.ct-loading {
+    text-align: center;
+    padding: 40px;
+    color: #888;
+}
+
+.ct-loading::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    border-top-color: #667eea;
+    animation: spin 1s ease-in-out infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+} 
